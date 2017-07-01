@@ -1,0 +1,7 @@
+<%= form_for(@post) do |f| %>
+	<div class="field">
+		<%= f.text_area :body, placeholder: "What's on your mind?", rows: "2" %>
+		<%= f.submit "Submit", class: 'btn btn-primary' %>
+	</div>
+
+<% end %>
