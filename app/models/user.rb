@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts, dependent: :destroy       
+  has_many :posts, dependent: :destroy    
+
+  def feed
+    Post.where("user_id = ?", id)
+  end   
 end

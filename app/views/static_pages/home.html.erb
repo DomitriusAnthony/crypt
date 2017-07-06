@@ -18,7 +18,22 @@
 
 <div class="col-md-5">
 	Status posting box and feed for followed users and my own posts
+	 
+    <%= render 'shared/post_form' %>
 
+    <% @feed.by_date.each do |post| %>
+
+    <div class="post-box">
+    	<div class="box-body" style="display: block;">
+			<p><%= raw(post.body). truncate(358) %></p>
+		</div>
+
+    </div>
+
+    <% end %>
+
+
+     
 
 
 

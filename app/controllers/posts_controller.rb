@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	
+	before_filter :authenticate_user!
+
 	def create
 		@post = current_user.posts.build(post_params)
 		if @post.save
@@ -18,5 +19,5 @@ class PostsController < ApplicationController
 		def post_params
 			params.require(:post).permit(:body)
 		end
-		
+
 end
